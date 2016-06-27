@@ -1,0 +1,51 @@
+[suker@suker-Precision-T1700:bin]$ ffmpeg 
+ffmpeg version 3.0.2-static http://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2016 the FFmpeg developers
+  built with gcc 5.3.1 (Debian 5.3.1-16) 20160424
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libwebp --enable-libspeex --enable-libvorbis --enable-libvpx --enable-libfreetype --enable-fontconfig --enable-libxvid --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora --enable-libvo-amrwbenc --enable-gray --enable-libopenjpeg --enable-libopus --enable-libass --enable-gnutls --enable-libvidstab --enable-libsoxr --enable-frei0r --enable-libfribidi --disable-indev=sndio --disable-outdev=sndio --enable-librtmp --enable-libmfx --enable-libzimg --cc=gcc
+  libavutil      55. 17.103 / 55. 17.103
+  libavcodec     57. 24.102 / 57. 24.102
+  libavformat    57. 25.100 / 57. 25.100
+  libavdevice    57.  0.101 / 57.  0.101
+  libavfilter     6. 31.100 /  6. 31.100
+  libswscale      4.  0.100 /  4.  0.100
+  libswresample   2.  0.101 /  2.  0.101
+  libpostproc    54.  0.100 / 54.  0.100
+Hyper fast Audio and Video encoder
+usage: ffmpeg [options] [[infile options] -i infile]... {[outfile options] outfile}...
+
+Use -h to get full help or, even better, run 'man ffmpeg'
+[suker@suker-Precision-T1700:bin]$ 
+
+[suker@suker-Precision-T1700:bin]$ ldd ffmpeg
+	linux-vdso.so.1 =>  (0x00007ffe56d6c000)
+	libXv.so.1 => /usr/lib/x86_64-linux-gnu/libXv.so.1 (0x00007efd0dac8000)
+	libX11.so.6 => /usr/lib/x86_64-linux-gnu/libX11.so.6 (0x00007efd0d793000)
+	libXext.so.6 => /usr/lib/x86_64-linux-gnu/libXext.so.6 (0x00007efd0d580000)
+	libxcb.so.1 => /usr/lib/x86_64-linux-gnu/libxcb.so.1 (0x00007efd0d361000)
+	libxcb-shm.so.0 => /usr/lib/x86_64-linux-gnu/libxcb-shm.so.0 (0x00007efd0d15e000)
+	libasound.so.2 => /usr/lib/x86_64-linux-gnu/libasound.so.2 (0x00007efd0ce6d000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007efd0cb67000)
+	libgomp.so.1 => /usr/lib/x86_64-linux-gnu/libgomp.so.1 (0x00007efd0c958000)
+	libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007efd0c73e000)
+	libssl.so.1.0.0 => /lib/x86_64-linux-gnu/libssl.so.1.0.0 (0x00007efd0c4d5000)
+	libcrypto.so.1.0.0 => /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 (0x00007efd0c08c000)
+	libfribidi.so.0 => /usr/lib/x86_64-linux-gnu/libfribidi.so.0 (0x00007efd0be74000)
+	liblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007efd0bc52000)
+	libexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007efd0ba28000)
+	libpng12.so.0 => /lib/x86_64-linux-gnu/libpng12.so.0 (0x00007efd0b801000)
+	libharfbuzz.so.0 => /usr/lib/x86_64-linux-gnu/libharfbuzz.so.0 (0x00007efd0b5ac000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007efd0b3a8000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007efd0b189000)
+	libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007efd0ae85000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007efd0ac7d000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007efd0aa66000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007efd0a6a1000)
+	libXau.so.6 => /usr/lib/x86_64-linux-gnu/libXau.so.6 (0x00007efd0a49d000)
+	libXdmcp.so.6 => /usr/lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007efd0a296000)
+	/lib64/ld-linux-x86-64.so.2 (0x0000555a9cf7d000)
+	libglib-2.0.so.0 => /lib/x86_64-linux-gnu/libglib-2.0.so.0 (0x00007efd09f87000)
+	libfreetype.so.6 => /usr/lib/x86_64-linux-gnu/libfreetype.so.6 (0x00007efd09ce3000)
+	libgraphite2.so.3 => /usr/lib/x86_64-linux-gnu/libgraphite2.so.3 (0x00007efd09ac7000)
+	libpcre.so.3 => /lib/x86_64-linux-gnu/libpcre.so.3 (0x00007efd09888000)
+[suker@suker-Precision-T1700:bin]$ 
+

@@ -179,7 +179,8 @@ withogg()
 
 vidstab()
 {
-	comnbld $1 4
+	git clone $1
+	time  cmakemodule vid.stab
 }
 
 openjpeg()
@@ -230,33 +231,35 @@ ffmbld()
 }
 
 
-#time  cfgbld  https://www.fribidi.org/download/fribidi-0.19.7.tar.bz2                                                               #ok
-#time  cfgbld  https://sourceforge.net/projects/opencore-amr/files/fdk-aac/fdk-aac-0.1.4.tar.gz                                      #ok
-#time  cfgbld  https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.0.tar.bz2                                     #ok
-#time  cfgbld  http://download.savannah.gnu.org/releases/freetype/freetype-2.6.tar.bz2                                               #ok
-#time  cmakebld  https://files.dyne.org/frei0r/releases/frei0r-plugins-1.5.0.tar.gz                                                  #ok
-#time  cfgbld  https://sourceforge.net/projects/lame/files/lame/3.99/lame-3.99.5.tar.gz                                              #ok
-#time  cfgbld  https://github.com/libass/libass/releases/download/0.13.2/libass-0.13.2.tar.xz                                        #error(must have fribidi)
-#time  cmakebld  https://sourceforge.net/projects/soxr/files/soxr-0.1.2-Source.tar.xz                                                #ok
-#time  vidstab https://github.com/georgmartius/vid.stab/tarball/release-0.98b/georgmartius-vid.stab-release-0.98b-0-g3b35b4d.tar.gz  #ok(error bef)
-#time  cfgbld  http://downloads.xiph.org/releases/ogg/libogg-1.3.2.tar.xz                                                            #ok
-#time  withogg  http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.5.tar.xz                                                     #ok
-#time  withogg  http://downloads.xiph.org/releases/theora/libtheora-1.2.0alpha1.tar.xz                                               #ok
-#time  cfgbld  https://sourceforge.net/projects/opencore-amr/files/opencore-amr/opencore-amr-0.1.3.tar.gz                            #ok
-#time  cfgbld  http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2                            #ok(need clean)
-#time  cfgbld  https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-0.5.0.tar.gz                           #ok
-#time  x264bld  ftp://ftp.videolan.org/pub/x264/snapshots/last_x264.tar.bz2                                                          #ok(error bef)
-#time  cfgbld  https://sourceforge.net/projects/opencore-amr/files/vo-aacenc/vo-aacenc-0.1.3.tar.gz                                  #ok
-#time  cfgbld  https://sourceforge.net/projects/opencore-amr/files/vo-amrwbenc/vo-amrwbenc-0.1.3.tar.gz                              #ok
-#time  cfgbld  http://downloads.xiph.org/releases/opus/opus-1.1.2.tar.gz                                                             #ok
-#time  cfgbld  http://downloads.xiph.org/releases/speex/speex-1.2rc2.tar.gz                                                          #ok
-#time  openjpeg  https://github.com/uclouvain/openjpeg/archive/version.2.1.tar.gz                                                    #ok(error bef)
-#time  rtmpbld  https://ffmpeg.zeranoe.com/builds/source/external_libraries/rtmpdump-20151223-git-fa8646d.tar.xz                     #ok(error bef)
-#time  xvidcord  http://downloads.xvid.org/downloads/xvidcore-1.3.4.tar.bz2                                                          #ok(error bef)
-#time  zimgbld  https://github.com/sekrit-twc/zimg/archive/master.zip                                                                #ok(error bef)
-#time  x265bld  https://bitbucket.org/multicoreware/x265                                                                              #ok
-time  ffmbld  http://ffmpeg.org/releases/ffmpeg-3.0.2.tar.bz2
+time  cfgbld    https://www.fribidi.org/download/fribidi-0.19.7.tar.bz2                                                               #ok
+time  cfgbld    https://sourceforge.net/projects/opencore-amr/files/fdk-aac/fdk-aac-0.1.4.tar.gz                                      #ok
+time  cfgbld    https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.0.tar.bz2                                     #ok
+time  cfgbld    http://download.savannah.gnu.org/releases/freetype/freetype-2.6.tar.bz2                                               #ok
+time  cmakebld  https://files.dyne.org/frei0r/releases/frei0r-plugins-1.5.0.tar.gz                                                    #ok
+time  cfgbld    https://sourceforge.net/projects/lame/files/lame/3.99/lame-3.99.5.tar.gz                                              #ok
+time  cfgbld    https://github.com/libass/libass/releases/download/0.13.2/libass-0.13.2.tar.xz                                        #error(must have fribidi)
+time  cmakebld  https://sourceforge.net/projects/soxr/files/soxr-0.1.2-Source.tar.xz                                                  #ok
+time  vidstab    https://github.com/georgmartius/vid.stab.git                                                                          #ok(error bef)
+time  cfgbld    http://downloads.xiph.org/releases/ogg/libogg-1.3.2.tar.xz                                                            #ok
+time  withogg   http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.5.tar.xz                                                      #ok
+time  withogg   http://downloads.xiph.org/releases/theora/libtheora-1.2.0alpha1.tar.xz                                                #ok
+time  cfgbld    https://sourceforge.net/projects/opencore-amr/files/opencore-amr/opencore-amr-0.1.3.tar.gz                            #ok
+time  cfgbld    http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2                            #ok(need clean)
+time  cfgbld    https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-0.5.0.tar.gz                           #ok
+time  x264bld   ftp://ftp.videolan.org/pub/x264/snapshots/last_x264.tar.bz2                                                           #ok(error bef)
+time  cfgbld    https://sourceforge.net/projects/opencore-amr/files/vo-aacenc/vo-aacenc-0.1.3.tar.gz                                  #ok
+time  cfgbld    https://sourceforge.net/projects/opencore-amr/files/vo-amrwbenc/vo-amrwbenc-0.1.3.tar.gz                              #ok
+time  cfgbld    http://downloads.xiph.org/releases/opus/opus-1.1.2.tar.gz                                                             #ok
+time  cfgbld    http://downloads.xiph.org/releases/speex/speex-1.2rc2.tar.gz                                                          #ok
+time  openjpeg  https://github.com/uclouvain/openjpeg/archive/version.2.1.tar.gz                                                      #ok(error bef)
+time  rtmpbld   https://ffmpeg.zeranoe.com/builds/source/external_libraries/rtmpdump-20151223-git-fa8646d.tar.xz                      #ok(error bef)
+time  xvidcord  http://downloads.xvid.org/downloads/xvidcore-1.3.4.tar.bz2                                                            #ok(error bef)
+time  zimgbld   https://github.com/sekrit-twc/zimg/archive/master.zip                                                                 #ok(error bef)
+time  x265bld   https://bitbucket.org/multicoreware/x265                                                                              #ok
+time  ffmbld    http://ffmpeg.org/releases/ffmpeg-3.0.2.tar.bz2
 #===============================================================================
+#time  vidstab   https://github.com/georgmartius/vid.stab/tarball/release-0.98b/georgmartius-vid.stab-release-0.98b-0-g3b35b4d.tar.gz  #ok(error bef)
+#https://github.com/georgmartius/vid.stab.git
 #===============================================================================
 #===============================================================================
 

@@ -1,0 +1,51 @@
+[suker@suker-Precision-T1700:bin]$ ./ffmpeg 
+ffmpeg version 3.0.2 Copyright (c) 2000-2016 the FFmpeg developers
+  built with gcc 4.8 (Ubuntu 4.8.4-2ubuntu1~14.04.1)
+  configuration: --prefix=/home/suker/work/source/johnvansickle.com/ffmpeg/release-source/build/ffmpeg-3.0.2 --enable-ffplay --enable-gpl --enable-version3 --enable-static --disable-debug --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libwebp --enable-libspeex --enable-libvorbis --enable-libvpx --enable-libfreetype --enable-fontconfig --enable-libxvid --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libtheora --enable-libvo-amrwbenc --enable-gray --enable-libopenjpeg --enable-libopus --enable-libass --enable-libvidstab --enable-libsoxr --enable-frei0r --enable-libfribidi --disable-indev=sndio --disable-outdev=sndio --enable-librtmp --enable-libzimg --extra-cflags=-I/home/suker/work/source/johnvansickle.com/ffmpeg/release-source/build/install/include --extra-ldflags='-L/home/suker/work/source/johnvansickle.com/ffmpeg/release-source/build/install/lib -L/usr/lib/x86_64-linux-gnu/' --extra-libs='-lexpat -lpng -lharfbuzz -lgomp -ldl -lz -lpthread -lstdc++ -lm -lrt -lfreetype'
+  libavutil      55. 17.103 / 55. 17.103
+  libavcodec     57. 24.102 / 57. 24.102
+  libavformat    57. 25.100 / 57. 25.100
+  libavdevice    57.  0.101 / 57.  0.101
+  libavfilter     6. 31.100 /  6. 31.100
+  libswscale      4.  0.100 /  4.  0.100
+  libswresample   2.  0.101 /  2.  0.101
+  libpostproc    54.  0.100 / 54.  0.100
+Hyper fast Audio and Video encoder
+usage: ffmpeg [options] [[infile options] -i infile]... {[outfile options] outfile}...
+
+Use -h to get full help or, even better, run 'man ffmpeg'
+[suker@suker-Precision-T1700:bin]$ 
+
+[suker@suker-Precision-T1700:bin]$ ldd ./ffmpeg
+	linux-vdso.so.1 =>  (0x00007ffe7fbfc000)
+	libXv.so.1 => /usr/lib/x86_64-linux-gnu/libXv.so.1 (0x00007f6d192cd000)
+	libX11.so.6 => /usr/lib/x86_64-linux-gnu/libX11.so.6 (0x00007f6d18f98000)
+	libXext.so.6 => /usr/lib/x86_64-linux-gnu/libXext.so.6 (0x00007f6d18d85000)
+	libxcb.so.1 => /usr/lib/x86_64-linux-gnu/libxcb.so.1 (0x00007f6d18b66000)
+	libxcb-shm.so.0 => /usr/lib/x86_64-linux-gnu/libxcb-shm.so.0 (0x00007f6d18963000)
+	libasound.so.2 => /usr/lib/x86_64-linux-gnu/libasound.so.2 (0x00007f6d18672000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f6d1836c000)
+	libgomp.so.1 => /usr/lib/x86_64-linux-gnu/libgomp.so.1 (0x00007f6d1815d000)
+	libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f6d17f43000)
+	libssl.so.1.0.0 => /lib/x86_64-linux-gnu/libssl.so.1.0.0 (0x00007f6d17cda000)
+	libcrypto.so.1.0.0 => /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 (0x00007f6d17891000)
+	libfribidi.so.0 => /usr/lib/x86_64-linux-gnu/libfribidi.so.0 (0x00007f6d17679000)
+	liblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007f6d17457000)
+	libexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007f6d1722d000)
+	libpng12.so.0 => /lib/x86_64-linux-gnu/libpng12.so.0 (0x00007f6d17006000)
+	libharfbuzz.so.0 => /usr/lib/x86_64-linux-gnu/libharfbuzz.so.0 (0x00007f6d16db1000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f6d16bad000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f6d1698e000)
+	libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f6d1668a000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007f6d16482000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f6d1626b000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f6d15ea6000)
+	libXau.so.6 => /usr/lib/x86_64-linux-gnu/libXau.so.6 (0x00007f6d15ca2000)
+	libXdmcp.so.6 => /usr/lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007f6d15a9b000)
+	/lib64/ld-linux-x86-64.so.2 (0x00005602f666d000)
+	libglib-2.0.so.0 => /lib/x86_64-linux-gnu/libglib-2.0.so.0 (0x00007f6d1578c000)
+	libfreetype.so.6 => /usr/lib/x86_64-linux-gnu/libfreetype.so.6 (0x00007f6d154e8000)
+	libgraphite2.so.3 => /usr/lib/x86_64-linux-gnu/libgraphite2.so.3 (0x00007f6d152cc000)
+	libpcre.so.3 => /lib/x86_64-linux-gnu/libpcre.so.3 (0x00007f6d1508d000)
+[suker@suker-Precision-T1700:bin]$ 
+
