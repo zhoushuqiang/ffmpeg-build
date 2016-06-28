@@ -8,6 +8,8 @@
 #https://ffmpeg.zeranoe.com/builds/
 #http://pkgs.repoforge.org/
 #http://www.slackware.com/~alien/slackbuilds/ffmpeg/build/
+#http://www.linuxfromscratch.org/blfs/view/svn/general/libtasn1.html
+#http://www.lysator.liu.se/~nisse/archive/
 
 length=0
 SETUP_PATH=`echo $PWD`/build
@@ -20,8 +22,8 @@ bldmodule()
 	echo "==================================================build module $1 begin"
 	cd $1
 	make clean
-	echo "./configure --prefix=$SETUP_PATH/$1 $2 && make && make install"
-	./configure --prefix=$SETUP_PATH/$1 $2 && make && make install
+	echo "./configure --prefix=$SETUP_PATH/$1 $2 $3 $4   --enable-shared --enable-static && make && make install"
+	./configure --prefix=$SETUP_PATH/$1 $2 $3 $4  && make && make install
 	cd ../
 	echo "==================================================build module $1 end"
 }
@@ -81,7 +83,7 @@ comnbld()
 		time  cmakemodule $dirname
 	elif  [[ $2 == 3 ]]; then
 		echo "============libogg dependence mode"
-		time  bldmodule $dirname   --with-ogg=$SETUP_PATH/$OGGDIR
+		time  bldmodule $dirname  --with-ogg=$SETUP_PATH/$OGGDIR
 	elif  [[ $2 == 4 ]]; then
 		echo "============vidstab compile mode"
 		time  cmakemodule georgmartius-vid.stab-3b35b4d
@@ -143,6 +145,7 @@ comnbld()
 		 --enable-libopenjpeg \
 		 --enable-libopus \
 		 --enable-libass \
+		 --enable-gnutls \
 		 --enable-libvidstab \
 		 --enable-libsoxr \
 		 --enable-frei0r \
@@ -151,16 +154,40 @@ comnbld()
 		 --disable-outdev=sndio \
 		 --enable-librtmp \
 		 --enable-libzimg \
-		 --extra-cflags="-I$SETUP_PATH/install/include" \
+		 --extra-cflags="-static -I$SETUP_PATH/install/include" \
 		 --extra-ldflags="-L$SETUP_PATH/install/lib -L/usr/lib/x86_64-linux-gnu/" \
-		 --extra-libs="-lexpat -lpng -lharfbuzz -lgomp -ldl  -lz -lpthread  -lstdc++ -lm -lrt -lfreetype" 
+		 --extra-libs="-lexpat -lpng -lharfbuzz -lgomp -ldl  -lz -lpthread  -lstdc++ -lm -lrt -lfreetype -lgmp -lnettle -lidn -lhogweed -ltasn1" 
 
 		make  && make install
+#		 --extra-libs="-lexpat -lpng -lharfbuzz -lgomp -ldl  -lz -lpthread  -lstdc++ -lm -lrt -lfreetype -lgmp -lnettle -lidn -lhogweed -lp11-kit" 
 		cd ../
+	elif  [[ $2 == 12 ]]; then
+		echo "============libgnutls dependence mode"
+		#time  bldmodule $dirname   --with-libnettle-prefix=/usr
+		time  bldmodule $dirname  --disable-shared  --without-p11-kit
+#		time  bldmodule $dirname  --disable-shared  --with-included-libtasn1
+#		time  bldmodule $dirname  --disable-shared  --with-libnettle-prefix=/usr/lib/x86_64-linux-gnu/  --with-included-libtasn1
+#		time  bldmodule $dirname  --disable-shared  --with-libnettle-prefix=/usr/lib/x86_64-linux-gnu/  --with-included-libtasn1=/usr/lib/x86_64-linux-gnu/
 	fi
 }
 
-
+#  --with-included-libtasn1
+#	./configure --prefix=$SETUP_PATH/$dirname \
+# 		--disable-srp-authentication\
+#		--disable-psk-authentication\
+#		--disable-anon-authentication\
+#		--disable-openpgp-authentication\
+#		--disable-dhe\
+#		--disable-ecdhe\
+#		--disable-openssl-compatibility\
+#		--disable-dtls-srtp-support\
+#		--disable-alpn-support\
+#		--disable-heartbeat-support\
+#		--disable-libdane\
+#		--without-p11-kit\
+#		--without-tpm\
+#		--without-zlib\
+#  && make && make install
 
 cfgbld()
 {
@@ -231,6 +258,20 @@ ffmbld()
 }
 
 
+gnutlsbld()
+{
+	export CPPFLAGS="-I/home/suker/work/study/log/2016/06/24/ffmpegbld/build/install/include"
+	export LDFLAGS="-L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/install/lib"
+#./configure --host=i686-w64-mingw32 --prefix="$HOME/prefix-win32" --disable-shared --with-included-libtasn1 --without-p11-kit --disable-doc --enable-local-libopts
+	comnbld $1 12
+}
+
+time  cfgbld    http://www.lysator.liu.se/~nisse/archive/nettle-3.2.tar.gz                                                            #ok
+time  cfgbld    http://ftp.gnu.org/gnu/libtasn1/libtasn1-4.8.tar.gz                                                                   #ok
+time  cfgbld    http://ftp.gnu.org/gnu/libidn/libidn-1.32.tar.gz                                                                      #ok
+time  cfgbld    http://www.unbound.net/downloads/unbound-1.5.9.tar.gz                                                                 #ok
+time  cfgbld    http://p11-glue.freedesktop.org/releases/p11-kit-0.23.2.tar.gz                                                        #ok
+time  gnutlsbld ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5/gnutls-3.5.0.tar.xz
 time  cfgbld    https://www.fribidi.org/download/fribidi-0.19.7.tar.bz2                                                               #ok
 time  cfgbld    https://sourceforge.net/projects/opencore-amr/files/fdk-aac/fdk-aac-0.1.4.tar.gz                                      #ok
 time  cfgbld    https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.0.tar.bz2                                     #ok
@@ -262,6 +303,7 @@ time  ffmbld    http://ffmpeg.org/releases/ffmpeg-3.0.2.tar.bz2
 #https://github.com/georgmartius/vid.stab.git
 #===============================================================================
 #===============================================================================
+#ln -s /usr/local/lib/libgnutls.so.28 /usr/lib/libgnutls.so.28
 
 ##echo https://sourceforge.net/projects/opencore-amr/files/fdk-aac/fdk-aac-0.1.4.tar.gz | cut -d "|" -f -1
 ##echo "1:3:5" | awk -F ":" '{print $NF}'
