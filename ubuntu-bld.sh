@@ -252,11 +252,6 @@ x265bld()
 #	make install
 }
 
-ffmbld()
-{
-	comnbld $1 10
-}
-
 
 gnutlsbld()
 {
@@ -266,6 +261,16 @@ gnutlsbld()
 	comnbld $1 12
 }
 
+mfxbld()
+{
+	git clone $1
+	cmakebld mfx_dispatch
+}
+
+ffmbld()
+{
+	comnbld $1 10
+}
 time  cfgbld    http://www.lysator.liu.se/~nisse/archive/nettle-3.2.tar.gz                                                            #ok
 time  cfgbld    http://ftp.gnu.org/gnu/libtasn1/libtasn1-4.8.tar.gz                                                                   #ok
 time  cfgbld    http://ftp.gnu.org/gnu/libidn/libidn-1.32.tar.gz                                                                      #ok
@@ -297,6 +302,8 @@ time  rtmpbld   https://ffmpeg.zeranoe.com/builds/source/external_libraries/rtmp
 time  xvidcord  http://downloads.xvid.org/downloads/xvidcore-1.3.4.tar.bz2                                                            #ok(error bef)
 time  zimgbld   https://github.com/sekrit-twc/zimg/archive/master.zip                                                                 #ok(error bef)
 time  x265bld   https://bitbucket.org/multicoreware/x265                                                                              #ok
+#time  mfxbld    https://github.com/lu-zero/mfx_dispatch.git                                                                           #ok
+time  cfgbld    http://libsdl.org/release/SDL2-2.0.4.tar.gz                                                                            #ok
 time  ffmbld    http://ffmpeg.org/releases/ffmpeg-3.0.2.tar.bz2
 #===============================================================================
 #time  vidstab   https://github.com/georgmartius/vid.stab/tarball/release-0.98b/georgmartius-vid.stab-release-0.98b-0-g3b35b4d.tar.gz  #ok(error bef)
@@ -471,5 +478,30 @@ time  ffmbld    http://ffmpeg.org/releases/ffmpeg-3.0.2.tar.bz2
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 #time  cfgbld  http://downloads.xiph.org/releases/speex/speexdsp-1.2rc3.tar.gz                                                       #ok
-
 #-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+#wget http://libsdl.org/release/SDL-1.2.15.tar.gz
+#tar zxvf SDL-1.2.15.tar.gz
+#cd SDL-1.2.15
+#./configure --prefix=/usr
+#make -j16
+#sudo make install
+#-------------------------------------------------------------------------------
+#./configure \
+#--prefix=/usr/local --shlibdir=/usr/local/lib64 --libdir=/usr/local/lib64 \
+#--mandir=/usr/local/man --incdir=/usr/local/include \
+#--enable-gpl --enable-nonfree --enable-version3 \
+#--enable-x11grab --enable-libdc1394 \
+#--enable-avfilter --enable-pthreads \
+#--enable-postproc --enable-libvpx \
+#--enable-libx264 --enable-libxvid \
+#--enable-libopencore-amrnb  --enable-libopencore-amrwb \
+#--enable-libdirac --enable-libschroedinger \
+#--enable-libmp3lame --enable-libfaac \
+#--enable-libtheora --enable-libvorbis \
+#--enable-libfreetype --enable-filter=drawtext \
+#--enable-static \
+#--disable-shared
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+

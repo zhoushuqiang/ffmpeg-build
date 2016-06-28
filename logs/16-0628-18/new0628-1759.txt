@@ -1,0 +1,88 @@
+ ./ffmpeg 
+ffmpeg version 3.0.2 Copyright (c) 2000-2016 the FFmpeg developers
+  built with gcc 4.8 (Ubuntu 4.8.4-2ubuntu1~14.04.1)
+  configuration:
+ --prefix=/home/suker/work/study/log/2016/06/24/ffmpegbld/build/ffmpeg-3.0.2
+ --enable-ffplay
+ --enable-gpl
+ --enable-version3
+ --enable-static
+ --disable-debug
+ --enable-libmp3lame
+ --enable-libx264
+ --enable-libx265
+ --enable-libwebp
+ --enable-libspeex
+ --enable-libvorbis
+ --enable-libvpx
+ --enable-libfreetype
+ --enable-fontconfig
+ --enable-libxvid
+ --enable-libopencore-amrnb
+ --enable-libopencore-amrwb
+ --enable-libtheora
+ --enable-libvo-amrwbenc
+ --enable-gray
+ --enable-libopenjpeg
+ --enable-libopus
+ --enable-libass
+ --enable-gnutls
+ --enable-libvidstab
+ --enable-libsoxr
+ --enable-frei0r
+ --enable-libfribidi
+ --disable-indev=sndio
+ --disable-outdev=sndio
+ --enable-librtmp
+ --enable-libzimg
+ --extra-cflags='-static -I/home/suker/work/study/log/2016/06/24/ffmpegbld/build/install/include'
+ --extra-ldflags='-L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/install/lib -L/usr/lib/x86_64-linux-gnu/'
+ --extra-libs='-lexpat -lpng -lharfbuzz -lgomp -ldl -lz -lpthread -lstdc++ -lm -lrt -lfreetype -lgmp -lnettle -lidn -lhogweed -ltasn1'
+  libavutil      55. 17.103 / 55. 17.103
+  libavcodec     57. 24.102 / 57. 24.102
+  libavformat    57. 25.100 / 57. 25.100
+  libavdevice    57.  0.101 / 57.  0.101
+  libavfilter     6. 31.100 /  6. 31.100
+  libswscale      4.  0.100 /  4.  0.100
+  libswresample   2.  0.101 /  2.  0.101
+  libpostproc    54.  0.100 / 54.  0.100
+Hyper fast Audio and Video encoder
+usage: ffmpeg [options] [[infile options] -i infile]... {[outfile options] outfile}...
+
+Use -h to get full help or, even better, run 'man ffmpeg'
+[suker@suker-Precision-T1700:bin]$ 
+[suker@suker-Precision-T1700:bin]$ ldd ./ffmpeg 
+	linux-vdso.so.1 =>  (0x00007fffdabf1000)
+	libXv.so.1 => /usr/lib/x86_64-linux-gnu/libXv.so.1 (0x00007f2f07031000)
+	libX11.so.6 => /usr/lib/x86_64-linux-gnu/libX11.so.6 (0x00007f2f06cfc000)
+	libXext.so.6 => /usr/lib/x86_64-linux-gnu/libXext.so.6 (0x00007f2f06ae9000)
+	libxcb.so.1 => /usr/lib/x86_64-linux-gnu/libxcb.so.1 (0x00007f2f068ca000)
+	libxcb-shm.so.0 => /usr/lib/x86_64-linux-gnu/libxcb-shm.so.0 (0x00007f2f066c7000)
+	libasound.so.2 => /usr/lib/x86_64-linux-gnu/libasound.so.2 (0x00007f2f063d6000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f2f060d0000)
+	libgomp.so.1 => /usr/lib/x86_64-linux-gnu/libgomp.so.1 (0x00007f2f05ec1000)
+	libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f2f05ca7000)
+	libssl.so.1.0.0 => /lib/x86_64-linux-gnu/libssl.so.1.0.0 (0x00007f2f05a3e000)
+	libcrypto.so.1.0.0 => /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 (0x00007f2f055f5000)
+	libfribidi.so.0 => /usr/lib/x86_64-linux-gnu/libfribidi.so.0 (0x00007f2f053dd000)
+	libfontconfig.so.1 => /usr/lib/x86_64-linux-gnu/libfontconfig.so.1 (0x00007f2f051a1000)
+	liblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007f2f04f7f000)
+	libexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007f2f030ab000)
+	libpng12.so.0 => /lib/x86_64-linux-gnu/libpng12.so.0 (0x00007f2f04d58000)
+	libharfbuzz.so.0 => /usr/lib/x86_64-linux-gnu/libharfbuzz.so.0 (0x00007f2f04b03000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f2f048ff000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f2f046e0000)
+	libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f2f043dc000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007f2f041d4000)
+	libgmp.so.10 => /usr/lib/x86_64-linux-gnu/libgmp.so.10 (0x00007f2f03f5f000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f2f03d49000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f2f03984000)
+	libXau.so.6 => /usr/lib/x86_64-linux-gnu/libXau.so.6 (0x00007f2f0377f000)
+	libXdmcp.so.6 => /usr/lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007f2f03579000)
+	/lib64/ld-linux-x86-64.so.2 (0x0000564033db9000)
+	libglib-2.0.so.0 => /lib/x86_64-linux-gnu/libglib-2.0.so.0 (0x00007f2f02d9c000)
+	libfreetype.so.6 => /usr/lib/x86_64-linux-gnu/libfreetype.so.6 (0x00007f2f032d5000)
+	libgraphite2.so.3 => /usr/lib/x86_64-linux-gnu/libgraphite2.so.3 (0x00007f2f02b7f000)
+	libpcre.so.3 => /lib/x86_64-linux-gnu/libpcre.so.3 (0x00007f2f02941000)
+[suker@suker-Precision-T1700:bin]$ 
+
