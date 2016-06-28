@@ -1,0 +1,14 @@
+prefix=/home/suker/work/study/log/2016/06/24/ffmpegbld/build/ffmpeg-3.0.2
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libavcodec
+Description: FFmpeg codec library
+Version: 57.24.102
+Requires: libswresample >= 2.0.101, libavutil >= 55.17.103
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavcodec -lXv -lX11 -lXext -lxcb -lxcb-shm -lxcb -lX11 -lasound -Wl,-rpath,/home/suker/work/study/log/2016/06/24/ffmpegbld/build/SDL-1.2.15/lib -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/SDL-1.2.15/lib -lSDL -lpthread -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/zimg-master/lib -lzimg -lxvidcore -L/usr/local/lib -lx265 -lx264 -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/libwebp-0.5.0/lib -lwebp -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/libvpx-1.5.0/lib -lvpx -lm -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/libvpx-1.5.0/lib -lvpx -lm -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/libvpx-1.5.0/lib -lvpx -lm -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/libvpx-1.5.0/lib -lvpx -lm -lvorbisenc -lvorbis -logg -lvo-amrwbenc -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/vid.stab/lib -lvidstab -lm -lgomp -ltheoraenc -ltheoradec -logg -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/speex-1.2rc2/lib -lspeex -lsoxr -L/home/suker/work/rtmp/lib -lrtmp -lz -lssl -lcrypto -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/opus-1.1.2/lib -lopus -lopenjp2 -DOPJ_STATIC -lopencore-amrwb -lopencore-amrnb -lmp3lame -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/fribidi-0.19.7/lib -lfribidi -lglib-2.0 -lfreetype -lfontconfig -lfreetype -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/libass-0.13.2/lib -lass -L/home/suker/work/study/log/2016/06/24/ffmpegbld/build/gnutls-3.5.0/lib -lgnutls -lm -llzma -lz -pthread -lexpat -lpng -lharfbuzz -lgomp -ldl -lz -lpthread -lstdc++ -lm -lrt -lfreetype -lgmp -lnettle -lidn -lhogweed -ltasn1 -lSDL
+Libs.private: 
+Cflags: -I${includedir}
