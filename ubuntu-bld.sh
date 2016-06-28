@@ -13,7 +13,11 @@
 
 length=0
 SETUP_PATH=`echo $PWD`/build
-echo setuppath=$SETUP_PATH
+
+ISNETGET=$1
+ISCLEAN=$2
+
+echo "get new from net true:$1, clean all:$2, setuppath=$SETUP_PATH"
 
 OGGDIR=""
 
@@ -156,7 +160,7 @@ comnbld()
 		 --enable-libzimg \
 		 --extra-cflags="-static -I$SETUP_PATH/install/include" \
 		 --extra-ldflags="-L$SETUP_PATH/install/lib -L/usr/lib/x86_64-linux-gnu/" \
-		 --extra-libs="-lexpat -lpng -lharfbuzz -lgomp -ldl  -lz -lpthread  -lstdc++ -lm -lrt -lfreetype -lgmp -lnettle -lidn -lhogweed -ltasn1" 
+		 --extra-libs="-lexpat -lpng -lharfbuzz -lgomp -ldl  -lz -lpthread  -lstdc++ -lm -lrt -lfreetype -lgmp -lnettle -lidn -lhogweed -ltasn1 -lSDL" 
 
 		make  && make install
 #		 --extra-libs="-lexpat -lpng -lharfbuzz -lgomp -ldl  -lz -lpthread  -lstdc++ -lm -lrt -lfreetype -lgmp -lnettle -lidn -lhogweed -lp11-kit" 
@@ -170,6 +174,9 @@ comnbld()
 #		time  bldmodule $dirname  --disable-shared  --with-libnettle-prefix=/usr/lib/x86_64-linux-gnu/  --with-included-libtasn1=/usr/lib/x86_64-linux-gnu/
 	fi
 }
+
+
+#		 --enable-sdl2 \
 
 #  --with-included-libtasn1
 #	./configure --prefix=$SETUP_PATH/$dirname \
@@ -269,6 +276,7 @@ mfxbld()
 
 ffmbld()
 {
+#	export PATH=$PATH:/home/suker/work/study/log/2016/06/24/ffmpegbld/build/SDL2-2.0.4/include/SDL2:/home/suker/work/study/log/2016/06/24/ffmpegbld/build/SDL2-2.0.4/include:/home/#suker/work/study/log/2016/06/24/ffmpegbld/build/SDL2-2.0.4/lib
 	comnbld $1 10
 }
 time  cfgbld    http://www.lysator.liu.se/~nisse/archive/nettle-3.2.tar.gz                                                            #ok
@@ -303,7 +311,7 @@ time  xvidcord  http://downloads.xvid.org/downloads/xvidcore-1.3.4.tar.bz2      
 time  zimgbld   https://github.com/sekrit-twc/zimg/archive/master.zip                                                                 #ok(error bef)
 time  x265bld   https://bitbucket.org/multicoreware/x265                                                                              #ok
 #time  mfxbld    https://github.com/lu-zero/mfx_dispatch.git                                                                           #ok
-time  cfgbld    http://libsdl.org/release/SDL2-2.0.4.tar.gz                                                                            #ok
+time  cfgbld    http://libsdl.org/release/SDL-1.2.15.tar.gz                                                                            #ok
 time  ffmbld    http://ffmpeg.org/releases/ffmpeg-3.0.2.tar.bz2
 #===============================================================================
 #time  vidstab   https://github.com/georgmartius/vid.stab/tarball/release-0.98b/georgmartius-vid.stab-release-0.98b-0-g3b35b4d.tar.gz  #ok(error bef)
@@ -480,12 +488,14 @@ time  ffmbld    http://ffmpeg.org/releases/ffmpeg-3.0.2.tar.bz2
 #time  cfgbld  http://downloads.xiph.org/releases/speex/speexdsp-1.2rc3.tar.gz                                                       #ok
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
+#http://libsdl.org/release/SDL2-2.0.4.tar.gz
 #wget http://libsdl.org/release/SDL-1.2.15.tar.gz
 #tar zxvf SDL-1.2.15.tar.gz
 #cd SDL-1.2.15
 #./configure --prefix=/usr
 #make -j16
 #sudo make install
+#export PATH=$PATH:/home/suker/work/study/log/2016/06/24/ffmpegbld/build/SDL2-2.0.4/include/SDL2:/home/suker/work/study/log/2016/06/24/ffmpegbld/build/SDL2-2.0.4/include:/home/suker/work/study/log/2016/06/24/ffmpegbld/build/SDL2-2.0.4/lib
 #-------------------------------------------------------------------------------
 #./configure \
 #--prefix=/usr/local --shlibdir=/usr/local/lib64 --libdir=/usr/local/lib64 \
@@ -503,5 +513,8 @@ time  ffmbld    http://ffmpeg.org/releases/ffmpeg-3.0.2.tar.bz2
 #--enable-static \
 #--disable-shared
 #-------------------------------------------------------------------------------
+#./src/video/x11/SDL_x11sym.h
+#SDL_X11_SYM(int,_XData32,(Display *dpy,register long *data,unsigned len),(dpy,data,len),return)-->
+#SDL_X11_SYM(int,_XData32,(Display *dpy,register _Xconst long *data,unsigned len),(dpy,data,len),return)
 #-------------------------------------------------------------------------------
 
